@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改申请审批表管理')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-archives-edit" th:object="${user3}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">村委会：</label>
+                <div class="col-sm-8">
+                    <input name="village" th:field="*{village}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="uName" th:field="*{uName}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <select name="sex" class="form-control m-b" th:with="type=${@dict.getType('sys_user_sex')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{sex}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">年龄：</label>
+                <div class="col-sm-8">
+                    <input name="age" th:field="*{age}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">家庭人口：</label>
+                <div class="col-sm-8">
+                    <input name="number" th:field="*{number}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">具有劳动能力的人数：</label>
+                <div class="col-sm-8">
+                    <input name="ableWork" th:field="*{ableWork}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">某某组居民：</label>
+                <div class="col-sm-8">
+                    <input name="uGroup" th:field="*{uGroup}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">住房面积(注意精确度的提示)：</label>
+                <div class="col-sm-8">
+                    <input name="area0" th:field="*{area0}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">承包责任田：</label>
+                <div class="col-sm-8">
+                    <input name="area1" th:field="*{area1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">责任山：</label>
+                <div class="col-sm-8">
+                    <input name="area2" th:field="*{area2}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">责任土：</label>
+                <div class="col-sm-8">
+                    <input name="area3" th:field="*{area3}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">家庭主要收入来源：</label>
+                <div class="col-sm-8">
+                    <input name="income" th:field="*{income}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">年份：</label>
+                <div class="col-sm-8">
+                    <input name="year1" th:field="*{year1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">收入(单位:元)：</label>
+                <div class="col-sm-8">
+                    <input name="money" th:field="*{money}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">家庭困难原因：</label>
+                <div class="col-sm-8">
+                    <input name="reason" th:field="*{reason}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">某户：</label>
+                <div class="col-sm-8">
+                    <input name="name1" th:field="*{name1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="uDate" th:value="${#dates.format(user3.uDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">参加评议人数：</label>
+                <div class="col-sm-8">
+                    <input name="number1" th:field="*{number1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">得到同意票数：</label>
+                <div class="col-sm-8">
+                    <input name="agreeNumber" th:field="*{agreeNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">评议小组组长签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName0" th:field="*{signName0}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">村委会负责人签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName1" th:field="*{signName1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">乡镇审批负责人签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName2" th:field="*{signName2}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">县扶贫办复核签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName3" th:field="*{signName3}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">评议小组组长签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate0" th:value="${#dates.format(user3.signDate0, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">村委会负责人签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate1" th:value="${#dates.format(user3.signDate1, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">乡镇审批负责人签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate2" th:value="${#dates.format(user3.signDate2, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">县扶贫办复核签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate3" th:value="${#dates.format(user3.signDate3, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">县政府审批日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate4" th:value="${#dates.format(user3.signDate4, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">得票排位名次：</label>
+                <div class="col-sm-8">
+                    <input name="agreeRank" th:field="*{agreeRank}" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "system/archives";
+        $("#form-archives-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-archives-edit').serialize());
+            }
+        }
+
+        $("input[name='uDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate0']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate1']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate2']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate3']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate4']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>

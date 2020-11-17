@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.controller.archives.mapper.User3Mapper">
+    
+    <resultMap type="User3" id="User3Result">
+        <result property="id"    column="id"    />
+        <result property="village"    column="village"    />
+        <result property="uName"    column="u_name"    />
+        <result property="sex"    column="sex"    />
+        <result property="age"    column="age"    />
+        <result property="number"    column="number"    />
+        <result property="ableWork"    column="able_work"    />
+        <result property="uGroup"    column="u_group"    />
+        <result property="area0"    column="area0"    />
+        <result property="area1"    column="area1"    />
+        <result property="area2"    column="area2"    />
+        <result property="area3"    column="area3"    />
+        <result property="income"    column="income"    />
+        <result property="year1"    column="year1"    />
+        <result property="money"    column="money"    />
+        <result property="reason"    column="reason"    />
+        <result property="name1"    column="name1"    />
+        <result property="uDate"    column="u_date"    />
+        <result property="number1"    column="number1"    />
+        <result property="agreeNumber"    column="agree_number"    />
+        <result property="signName0"    column="sign_name0"    />
+        <result property="signName1"    column="sign_name1"    />
+        <result property="signName2"    column="sign_name2"    />
+        <result property="signName3"    column="sign_name3"    />
+        <result property="signDate0"    column="sign_date0"    />
+        <result property="signDate1"    column="sign_date1"    />
+        <result property="signDate2"    column="sign_date2"    />
+        <result property="signDate3"    column="sign_date3"    />
+        <result property="signDate4"    column="sign_date4"    />
+        <result property="agreeRank"    column="agree_rank"    />
+    </resultMap>
+
+    <sql id="selectUser3Vo">
+        select id, village, u_name, sex, age, number, able_work, u_group, area0, area1, area2, area3, income, year1, money, reason, name1, u_date, number1, agree_number, sign_name0, sign_name1, sign_name2, sign_name3, sign_date0, sign_date1, sign_date2, sign_date3, sign_date4, agree_rank from user_3
+    </sql>
+
+    <select id="selectUser3List" parameterType="User3" resultMap="User3Result">
+        <include refid="selectUser3Vo"/>
+        <where>  
+            <if test="id != null  and id != ''"> and id = #{id}</if>
+            <if test="village != null  and village != ''"> and village = #{village}</if>
+            <if test="uName != null  and uName != ''"> and u_name like concat('%', #{uName}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectUser3ById" parameterType="String" resultMap="User3Result">
+        <include refid="selectUser3Vo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertUser3" parameterType="User3">
+        insert into user_3
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="village != null">village,</if>
+            <if test="uName != null">u_name,</if>
+            <if test="sex != null">sex,</if>
+            <if test="age != null">age,</if>
+            <if test="number != null">number,</if>
+            <if test="ableWork != null">able_work,</if>
+            <if test="uGroup != null">u_group,</if>
+            <if test="area0 != null">area0,</if>
+            <if test="area1 != null">area1,</if>
+            <if test="area2 != null">area2,</if>
+            <if test="area3 != null">area3,</if>
+            <if test="income != null">income,</if>
+            <if test="year1 != null">year1,</if>
+            <if test="money != null">money,</if>
+            <if test="reason != null">reason,</if>
+            <if test="name1 != null">name1,</if>
+            <if test="uDate != null">u_date,</if>
+            <if test="number1 != null">number1,</if>
+            <if test="agreeNumber != null">agree_number,</if>
+            <if test="signName0 != null">sign_name0,</if>
+            <if test="signName1 != null">sign_name1,</if>
+            <if test="signName2 != null">sign_name2,</if>
+            <if test="signName3 != null">sign_name3,</if>
+            <if test="signDate0 != null">sign_date0,</if>
+            <if test="signDate1 != null">sign_date1,</if>
+            <if test="signDate2 != null">sign_date2,</if>
+            <if test="signDate3 != null">sign_date3,</if>
+            <if test="signDate4 != null">sign_date4,</if>
+            <if test="agreeRank != null">agree_rank,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="village != null">#{village},</if>
+            <if test="uName != null">#{uName},</if>
+            <if test="sex != null">#{sex},</if>
+            <if test="age != null">#{age},</if>
+            <if test="number != null">#{number},</if>
+            <if test="ableWork != null">#{ableWork},</if>
+            <if test="uGroup != null">#{uGroup},</if>
+            <if test="area0 != null">#{area0},</if>
+            <if test="area1 != null">#{area1},</if>
+            <if test="area2 != null">#{area2},</if>
+            <if test="area3 != null">#{area3},</if>
+            <if test="income != null">#{income},</if>
+            <if test="year1 != null">#{year1},</if>
+            <if test="money != null">#{money},</if>
+            <if test="reason != null">#{reason},</if>
+            <if test="name1 != null">#{name1},</if>
+            <if test="uDate != null">#{uDate},</if>
+            <if test="number1 != null">#{number1},</if>
+            <if test="agreeNumber != null">#{agreeNumber},</if>
+            <if test="signName0 != null">#{signName0},</if>
+            <if test="signName1 != null">#{signName1},</if>
+            <if test="signName2 != null">#{signName2},</if>
+            <if test="signName3 != null">#{signName3},</if>
+            <if test="signDate0 != null">#{signDate0},</if>
+            <if test="signDate1 != null">#{signDate1},</if>
+            <if test="signDate2 != null">#{signDate2},</if>
+            <if test="signDate3 != null">#{signDate3},</if>
+            <if test="signDate4 != null">#{signDate4},</if>
+            <if test="agreeRank != null">#{agreeRank},</if>
+         </trim>
+    </insert>
+
+    <update id="updateUser3" parameterType="User3">
+        update user_3
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="village != null">village = #{village},</if>
+            <if test="uName != null">u_name = #{uName},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="number != null">number = #{number},</if>
+            <if test="ableWork != null">able_work = #{ableWork},</if>
+            <if test="uGroup != null">u_group = #{uGroup},</if>
+            <if test="area0 != null">area0 = #{area0},</if>
+            <if test="area1 != null">area1 = #{area1},</if>
+            <if test="area2 != null">area2 = #{area2},</if>
+            <if test="area3 != null">area3 = #{area3},</if>
+            <if test="income != null">income = #{income},</if>
+            <if test="year1 != null">year1 = #{year1},</if>
+            <if test="money != null">money = #{money},</if>
+            <if test="reason != null">reason = #{reason},</if>
+            <if test="name1 != null">name1 = #{name1},</if>
+            <if test="uDate != null">u_date = #{uDate},</if>
+            <if test="number1 != null">number1 = #{number1},</if>
+            <if test="agreeNumber != null">agree_number = #{agreeNumber},</if>
+            <if test="signName0 != null">sign_name0 = #{signName0},</if>
+            <if test="signName1 != null">sign_name1 = #{signName1},</if>
+            <if test="signName2 != null">sign_name2 = #{signName2},</if>
+            <if test="signName3 != null">sign_name3 = #{signName3},</if>
+            <if test="signDate0 != null">sign_date0 = #{signDate0},</if>
+            <if test="signDate1 != null">sign_date1 = #{signDate1},</if>
+            <if test="signDate2 != null">sign_date2 = #{signDate2},</if>
+            <if test="signDate3 != null">sign_date3 = #{signDate3},</if>
+            <if test="signDate4 != null">sign_date4 = #{signDate4},</if>
+            <if test="agreeRank != null">agree_rank = #{agreeRank},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUser3ById" parameterType="String">
+        delete from user_3 where id = #{id}
+    </delete>
+
+    <delete id="deleteUser3ByIds" parameterType="String">
+        delete from user_3 where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

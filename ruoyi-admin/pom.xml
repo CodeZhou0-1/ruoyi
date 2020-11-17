@@ -79,6 +79,14 @@
             <artifactId>ruoyi-generator</artifactId>
         </dependency>
 
+        <!-- 档案管理-->
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>user-archives</artifactId>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>

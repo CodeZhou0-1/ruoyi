@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增申请审批表管理')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-archives-add">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">用户身份证：</label>
+                <div class="col-sm-8">
+                    <input name="id" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">村委会：</label>
+                <div class="col-sm-8">
+                    <input name="village" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="uName" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <select name="sex" class="form-control m-b" th:with="type=${@dict.getType('sys_user_sex')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">年龄：</label>
+                <div class="col-sm-8">
+                    <input name="age" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">家庭人口：</label>
+                <div class="col-sm-8">
+                    <input name="number" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">具有劳动能力的人数：</label>
+                <div class="col-sm-8">
+                    <input name="ableWork" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">某某组居民：</label>
+                <div class="col-sm-8">
+                    <input name="uGroup" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">住房面积(注意精确度的提示)：</label>
+                <div class="col-sm-8">
+                    <input name="area0" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">承包责任田：</label>
+                <div class="col-sm-8">
+                    <input name="area1" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">责任山：</label>
+                <div class="col-sm-8">
+                    <input name="area2" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">责任土：</label>
+                <div class="col-sm-8">
+                    <input name="area3" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">家庭主要收入来源：</label>
+                <div class="col-sm-8">
+                    <input name="income" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">年份：</label>
+                <div class="col-sm-8">
+                    <input name="year1" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">收入(单位:元)：</label>
+                <div class="col-sm-8">
+                    <input name="money" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">家庭困难原因：</label>
+                <div class="col-sm-8">
+                    <input name="reason" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">某户：</label>
+                <div class="col-sm-8">
+                    <input name="name1" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="uDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">参加评议人数：</label>
+                <div class="col-sm-8">
+                    <input name="number1" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">得到同意票数：</label>
+                <div class="col-sm-8">
+                    <input name="agreeNumber" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">评议小组组长签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName0" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">村委会负责人签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName1" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">乡镇审批负责人签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName2" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">县扶贫办复核签字：</label>
+                <div class="col-sm-8">
+                    <input name="signName3" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">评议小组组长签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate0" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">村委会负责人签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate1" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">乡镇审批负责人签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate2" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">县扶贫办复核签字日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate3" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">县政府审批日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="signDate4" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">得票排位名次：</label>
+                <div class="col-sm-8">
+                    <input name="agreeRank" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "system/archives"
+        $("#form-archives-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-archives-add').serialize());
+            }
+        }
+
+        $("input[name='uDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate0']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate1']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate2']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate3']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='signDate4']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>
