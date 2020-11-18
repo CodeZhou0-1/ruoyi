@@ -29,6 +29,7 @@
             <artifactId>spring-web</artifactId>
         </dependency>
 
+
         <!--Shiro核心框架 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -99,6 +100,12 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <!-- 代码提示需要的依赖包 -->
+        <dependency>
+            <groupId> org.springframework.boot </groupId>
+            <artifactId> spring-boot-configuration-processor </artifactId>
+            <optional> true </optional>
         </dependency>
 
     </dependencies>

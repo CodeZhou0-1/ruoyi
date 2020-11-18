@@ -1,5 +1,4 @@
 package com.ruoyi.web.controller.archives.mapper;
-
 import com.ruoyi.web.controller.archives.domain.User3;
 import org.springframework.stereotype.Component;
 
