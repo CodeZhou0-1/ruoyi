@@ -921,10 +921,11 @@ var table = {
         // 操作封装处理
         operate: {
             // 提交数据
-            submit: function(url, type, dataType, data, callback) {
+            submit: function(url, type, dataType, data, callback,cont) {
                 var config = {
                     url: url,
                     type: type,
+                    content:cont,
                     dataType: dataType,
                     data: data,
                     beforeSend: function () {
@@ -946,6 +947,9 @@ var table = {
             // get请求传输
             get: function(url, callback) {
             	$.operate.submit(url, "get", "json", "", callback);
+            },
+            download: function(url, callback) {
+                $.operate.submit(url, "get", "Content-Disposition", "", callback);
             },
             // 详细信息
             detail: function(id, width, height) {

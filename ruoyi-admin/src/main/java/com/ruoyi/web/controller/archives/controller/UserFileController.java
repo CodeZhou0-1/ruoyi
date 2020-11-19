@@ -100,7 +100,8 @@ public class UserFileController extends BaseController
     /**
      * 本地资源通用下载
      */
-    @GetMapping("/common/download/resource")
+
+    @GetMapping(value = "/common/download/resource",produces = "multipart/form-data")
     public void resourceDownload(String resource, HttpServletRequest request, HttpServletResponse response)
             throws Exception
     {
@@ -110,6 +111,8 @@ public class UserFileController extends BaseController
         String downloadPath = localPath + StringUtils.substringAfter(resource, Constants.RESOURCE_PREFIX);
         // 下载名称
         String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
+        // 下载名称改为从数据库中查询到的文件名称
+
         response.setCharacterEncoding("utf-8");
         response.setContentType("multipart/form-data");
         response.setHeader("Content-Disposition",
