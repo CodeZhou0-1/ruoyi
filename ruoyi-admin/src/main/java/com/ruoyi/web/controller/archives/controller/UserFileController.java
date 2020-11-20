@@ -19,9 +19,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import oshi.util.GlobalConfig;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -39,6 +41,8 @@ public class UserFileController extends BaseController
 
     @Autowired
     private IUserFileService userFileService;
+    @Autowired
+    private Global global;
 
     @RequiresPermissions("system:archivefile:view")
     @GetMapping()
@@ -94,6 +98,7 @@ public class UserFileController extends BaseController
         String filePath = Global.getUploadPath();
         // 上传并返回新文件路径
         String fileName = FileUploadUtils.upload(filePath, file);
+        System.out.println(fileName);
         userFile.setFilePath(fileName);
         return toAjax(userFileService.insertUserFile(userFile));
     }
@@ -164,6 +169,17 @@ public class UserFileController extends BaseController
     @ResponseBody
     public AjaxResult remove(String ids)
     {
+        //拿到数据库的文件路径 然后根据文件路径删除文件
+        UserFile userFile = userFileService.selectUserFileById(ids);
+        String filepath = userFile.getFilePath();
+        String profile = Global.getProfile();
+        String newPath = filepath.replace("/profile", profile);
+        FileUploadUtils.delAllFile(newPath);
+        //删除数据库记录
         return toAjax(userFileService.deleteUserFileByIds(ids));
     }
 }
+
+
+
+

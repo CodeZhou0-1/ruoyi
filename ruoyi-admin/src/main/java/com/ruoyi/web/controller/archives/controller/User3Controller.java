@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -81,7 +82,7 @@ public class User3Controller extends BaseController
     @Log(title = "申请审批表管理", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(User3 user3)
+    public AjaxResult addSave(@Valid User3 user3)
     {
         return toAjax(user3Service.insertUser3(user3));
     }

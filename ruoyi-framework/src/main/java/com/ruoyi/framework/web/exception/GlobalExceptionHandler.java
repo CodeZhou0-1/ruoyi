@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.authz.AuthorizationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -100,10 +101,24 @@ public class GlobalExceptionHandler
     @ExceptionHandler(BindException.class)
     public AjaxResult validatedBindException(BindException e)
     {
+
         log.error(e.getMessage(), e);
         String message = e.getAllErrors().get(0).getDefaultMessage();
-        return AjaxResult.error(message);
+        return AjaxResult.error("请确认输入数据类型是否为数字！");
     }
+
+    /**
+     * 自定义验证异常
+     */
+    @ExceptionHandler(DuplicateKeyException.class)
+    public AjaxResult DuplicateKeyException(DuplicateKeyException e)
+    {
+
+        log.error(e.getMessage(), e);
+        return AjaxResult.error("身份证号码或者主键id重复！");
+    }
+
+
 
     /**
      * 演示模式异常

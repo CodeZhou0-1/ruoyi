@@ -5,6 +5,9 @@ import com.ruoyi.common.core.domain.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 /**
@@ -18,6 +21,9 @@ public class User3 extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 用户身份证 */
+    @NotBlank
+
+    @Pattern(regexp="^[1-9]\\d{5}(18|19|20|(3\\d))\\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$",message = "身份证号码格式错误！")
     private String id;
 
     /** 村委会 */
@@ -25,6 +31,7 @@ public class User3 extends BaseEntity
     private String village;
 
     /** 姓名 */
+    @NotBlank(message = "姓名不能为空！")
     @Excel(name = "姓名")
     private String uName;
 
@@ -33,6 +40,8 @@ public class User3 extends BaseEntity
     private String sex;
 
     /** 年龄 */
+
+
     @Excel(name = "年龄")
     private Integer age;
 
