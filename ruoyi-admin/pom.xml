@@ -85,6 +85,12 @@
             <artifactId>ruoyi-common</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-poi</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+
 
 
     </dependencies>
