@@ -1,8 +1,6 @@
 package com.ruoyi.web.controller.archives.controller;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.io.IoUtil;
-import cn.hutool.poi.excel.ExcelWriter;
+
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
@@ -24,7 +22,10 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -110,8 +111,19 @@ public class User3Controller extends BaseController
     @Log(title = "申请审批表管理", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(@Valid User3 user3)
-    {
+    public AjaxResult addSave(@Valid User3 user3) throws ParseException {
+
+        //拿到字符串字段
+        String date1 = user3.getuDate1();
+
+        //拿到日期转换类
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        //将字符串类型转换成日期
+        Date date = sdf.parse(date1);
+
+        //将转换的日期对象赋值给user中原本的日期字段
+        user3.setuDate(date);
+
         return toAjax(user3Service.insertUser3(user3));
     }
 
@@ -149,4 +161,6 @@ public class User3Controller extends BaseController
     {
         return toAjax(user3Service.deleteUser3ByIds(ids));
     }
+
+
 }

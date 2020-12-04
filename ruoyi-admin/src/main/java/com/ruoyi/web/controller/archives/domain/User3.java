@@ -4,6 +4,7 @@ import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -40,8 +41,6 @@ public class User3 extends BaseEntity
     private String sex;
 
     /** 年龄 */
-
-
     @Excel(name = "年龄")
     private Integer age;
 
@@ -97,6 +96,9 @@ public class User3 extends BaseEntity
     @Excel(name = "日期", width = 30, dateFormat = "yyyy-MM-dd")
     private Date uDate;
 
+
+    private String uDate1;
+
     /** 参加评议人数 */
     @Excel(name = "参加评议人数")
     private Integer number1;
@@ -145,7 +147,23 @@ public class User3 extends BaseEntity
     @Excel(name = "县政府审批日期", width = 30, dateFormat = "yyyy-MM-dd")
     private Date signDate4;
 
-    public void setId(String id) 
+    public Date getuDate() {
+        return uDate;
+    }
+
+    public void setuDate(Date uDate) {
+        this.uDate = uDate;
+    }
+
+    public String getuDate1() {
+        return uDate1;
+    }
+
+    public void setuDate1(String uDate1) {
+        this.uDate1 = uDate1;
+    }
+
+    public void setId(String id)
     {
         this.id = id;
     }
@@ -298,15 +316,7 @@ public class User3 extends BaseEntity
     {
         return name1;
     }
-    public void setuDate(Date uDate) 
-    {
-        this.uDate = uDate;
-    }
 
-    public Date getuDate() 
-    {
-        return uDate;
-    }
     public void setNumber1(Integer number1) 
     {
         this.number1 = number1;
